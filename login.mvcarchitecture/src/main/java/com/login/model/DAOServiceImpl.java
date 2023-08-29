@@ -32,9 +32,9 @@ public class DAOServiceImpl implements DAOService {
 		return false;
 	}
 	@Override
-	public void saveRegistration(String name, String email, String password, String mobile) {
+	public void saveRegistration(String name, String city, String email, String mobile) {
 		try {
-			stmnt.executeUpdate("insert into registration values('"+name+"','"+email+"','"+password+"','"+mobile+"')");
+			stmnt.executeUpdate("insert into registration values('"+name+"','"+city+"','"+email+"','"+mobile+"')");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -43,7 +43,7 @@ public class DAOServiceImpl implements DAOService {
 	@Override
 	public boolean existsByEmail(String email) {
 		try {
-			ResultSet result = stmnt.executeQuery("Select * from login where email='"+email+"'");
+			ResultSet result = stmnt.executeQuery("Select * from registration where email='"+email+"'");
 			return result.next();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,7 +53,7 @@ public class DAOServiceImpl implements DAOService {
 	@Override
 	public boolean existsByMobile(String mobile) {
 		try {
-			ResultSet result = stmnt.executeQuery("Select * from login where mobile='"+mobile+"'");
+			ResultSet result = stmnt.executeQuery("Select * from registration where mobile='"+mobile+"'");
 			return result.next();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,13 +64,32 @@ public class DAOServiceImpl implements DAOService {
 	public ResultSet getAllRegistration(){
 		try {
 
-			ResultSet result = stmnt.executeQuery("Select * from login");
+			ResultSet result = stmnt.executeQuery("Select * from registration");
 			return result;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+	@Override
+	public void deleteByEmail(String email) {
+		try {
+			stmnt.executeUpdate("delete from registration where email='"+email+"'");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	@Override
+	public void updateRegistration(String email, String mobile) {
+		try {
+			stmnt.executeUpdate("Update registration SET mobile='"+mobile+"' WHERE email='"+email+"'");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 	
 }

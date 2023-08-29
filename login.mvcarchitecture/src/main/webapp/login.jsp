@@ -35,12 +35,13 @@
 				<p>Don't have an account? <a href="/WEB-INF/views/new_registration.jsp">Register</a></p>
 			</div>
 		</form>
-	</div>
-	<%
+		<%
 	if(request.getAttribute("error")!=null){
 		out.println(request.getAttribute("error"));
 	}
 	%>
+	</div>
+	
         
       
     </body>

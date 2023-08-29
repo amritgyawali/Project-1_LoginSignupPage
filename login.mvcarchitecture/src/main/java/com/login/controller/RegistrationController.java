@@ -25,8 +25,8 @@ public class RegistrationController extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String name = request.getParameter("name");
+	String city = request.getParameter("city");
 	String email = request.getParameter("email");
-	String password = request.getParameter("password");
 	String mobile = request.getParameter("mobile");
 	
 	DAOService service = new DAOServiceImpl();
@@ -38,7 +38,7 @@ public class RegistrationController extends HttpServlet {
 		request.setAttribute("msg", "Email/Mobile Already Exist!!");
 	}
 	else {
-		service.saveRegistration(name, password, email, mobile);
+		service.saveRegistration(name, city, email, mobile);
 		request.setAttribute("msg", "Record is saved");
 	}
 	
