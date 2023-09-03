@@ -12,5 +12,10 @@ public interface DAOService {
 
 	public void deleteByEmail(String email);
 	public void updateRegistration(String email, String mobile);
+	public void forget(String email, String password);
 
+	public void loginreg(String name, String email, String password, String mobile);
+	public boolean existsByloginEmail(String email);
+	public boolean existsByloginMobile(String mobile);
+	
 }

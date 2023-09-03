@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,10 +28,26 @@
         a:hover {
             background-color: #0056b3;
         }
+        .logout {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: #F4EAE7;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            font-family: 'Arial', sans-serif; /* Add a stylish font here */
+        }
+
     </style>
 </head>
 <body>
     <a href="RegistrationController">New Registration</a>
     <a href="allReg">All Registration</a>
+    <form action="logout" method="post">
+        <input type="submit" class="logout" value="Logout"> <!-- Added class "logout" -->
+    </form>
 </body>
 </html>

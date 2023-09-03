@@ -25,14 +25,14 @@
                 <i class='bx bxs-lock-alt'></i>
 			</div>
 
-			<div class="remember-forgot">
-				<label><input type="checkbox">Remember me </label>
-				<a href="#">Forgot password?</a>
-			</div>
+			 <div class="remember-forgot">
+                <label><input type="checkbox" name="rememberMe">Remember me </label>
+                <a href="forget.jsp">Forgot password?</a>
+            </div>
 			
 			<button type="submit" class="btn">Login</button>
 			<div class="register-link">
-				<p>Don't have an account? <a href="/WEB-INF/views/new_registration.jsp">Register</a></p>
+				<p>Don't have an account? <a href="loginreg.jsp">Register</a></p>
 			</div>
 		</form>
 		<%

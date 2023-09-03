@@ -62,10 +62,10 @@
     <div class="container">
         <h2>Registration</h2>
         <form action="RegistrationController" method="post">
-            Name &nbsp;<input type="text" name="name"><br>
-            City &nbsp;<input type="text" name="city"><br>
-            Email &nbsp;<input type="email" name="email"><br>
-            Mobile &nbsp;<input type="text" name="mobile"><br>
+            Name &nbsp;<input type="text" name="name" required><br>
+            City &nbsp;<input type="text" name="city" required><br>
+            Email &nbsp;<input type="email" name="email" required><br>
+            Mobile &nbsp;<input type="text" name="mobile" required><br>
             <input type="submit" name="save">
         </form>
         <% 

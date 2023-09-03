@@ -6,7 +6,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+<title>All Registration</title>
+<link rel="stylesheet" type="text/css" href="style1.css">
 </head>
 <body>
 	<table>

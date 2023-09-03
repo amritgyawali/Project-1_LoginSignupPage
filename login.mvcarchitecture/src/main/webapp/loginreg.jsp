@@ -1,24 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Registration</title>
+    <title>Signup</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .container {
             background-color: #fff;
-            border-radius: 5px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
             text-align: center;
@@ -27,18 +26,22 @@
             color: #333;
         }
         form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         label {
             font-weight: bold;
             margin-top: 10px;
-            color: #555;
         }
+        input[type="text"],
         input[type="email"],
-        input[type="text"] {
-            width: 100%;
+        input[type="password"] {
+            width: 90%;
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ccc;
@@ -56,20 +59,36 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+        .message {
+            color: #d9534f;
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2>Update Registration</h2>
-    <form action="update" method="post">
+    <h2>Signup</h2>
+    <form action="loginreg" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" required><br>
+        
         <label for="email">Email</label>
-        <input type="email" name="email" value="<%=request.getAttribute("email")%>" required><br>
+        <input type="email" name="email" required><br>
         
-        <label for="mobile">New Mobile Number</label>
-        <input type="text" name="mobile" value="<%=request.getAttribute("mobile")%>" required><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" required><br>
         
-        <input type="submit" value="Update">
+        <label for="mobile">Mobile</label>
+        <input type="text" name="mobile" required><br>
+        
+        <input type="submit" value="Signup">
     </form>
+    <% 
+        if(request.getAttribute("msg")!=null){
+            out.println("<p class='message'>" + request.getAttribute("msg") + "</p>");
+        }
+    %>
 </div>
 </body>
 </html>

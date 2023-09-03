@@ -89,6 +89,45 @@ public class DAOServiceImpl implements DAOService {
 		}
 		
 	}
+	@Override
+	public void loginreg(String name, String email, String mobile, String password) {
+		try {
+			stmnt.executeUpdate("insert into login values('"+name+"','"+email+"','"+password+"','"+mobile+"')");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	@Override
+	public boolean existsByloginEmail(String email) {
+		try {
+			ResultSet result = stmnt.executeQuery("Select * from login where email='"+email+"'");
+			return result.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	@Override
+	public boolean existsByloginMobile(String mobile) {
+		try {
+			ResultSet result = stmnt.executeQuery("Select * from login where mobile='"+mobile+"'");
+			return result.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	@Override
+	public void forget(String email, String password) {
+		try {
+			stmnt.executeUpdate("Update login SET password='"+password+"' WHERE email='"+email+"'");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 	
 	
